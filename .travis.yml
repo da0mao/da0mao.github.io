@@ -9,7 +9,7 @@ cache:
 before_install:
 - npm install -g hexo-cli
 - npm install gulp -g
-- git clone -b master https://github.com/theme-next/hexo-theme-next themes/next
+- git clone -b master https://github.com/da0mao/hexo-theme-next.git themes/next
 install:
 - npm install
 # script:
