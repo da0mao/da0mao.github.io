@@ -17,8 +17,9 @@ script:
 after_success:
 - git config --global user.name "da0mao"
 - git config --global user.email "da0mao@hotmail.com"
-- sed -i'' "s~git@github.com:da0mao/da0mao.github.io.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/da0mao/da0mao.github.io.git~" _config.yml
+- sed -i'' "s~git@github.com:da0mao/da0mao.github.io.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/da0mao/da0mao.github.io.git~"
+  _config.yml
 - hexo d
 env:
   global:
-  - secure: fjuCt5d3dqtr+8j3zq+hOUQZ/f/aNPSoLre2QbfV9awj0bCVOG7A/dC2ZqTJTXh/2ORwwLtsgDU1Zd9VYOtbUqjrcGtKs8eS//smaFakjkxv4tpggbAX8A1AtaA7SzXIuTVvOpnbV2DNFTL7V4USZ0coKS8zqE13tcepnwe4zGBGniIVjGZCx+cTSXQrim6d11mnAk9zSCwUJOHz6o1frSrxUIDVJOrlYbyu4qqz914eduWHqmeZBWP7DSkE4ZXBCLLx8dmr8aGIUe1yZcEW4dC8YGrSLt86RAGd9nVaSFKwt4xcxgQ3C1ovo3CVE7a/ZTAahU+ke2+NvbdL7bkorI10HhHsrMsUteF8cF9A0ECr5dVlzyz7mDXJj+a8Qnpffjca3YMiPnTPfDzFpzX01f80CZQ/nJmA9LI5TJK95HCC2B1LxSzsKFdLbt7BOZR2uIrNOfCuzUvA1BVaapAF290YkZBeKfIYPc5qFw+z+B/O2sJj61w2gbsjLUk7O8T6jIXd+f9yz7DEtBMrbdwRsxPrNdmg+LBD9jcukYU6EkMKG44r869Cxl07aNdcbuPQra13a0gLhkdf2eKdc3QMEarbW7elNvBMdY46P+ow7MKSvI4z0G5E1ueJV8s5fdsaK8LFFSAMIHAQt7IpE5JepXu0Sba8MO86AOOI9M5IuRY=
+  - secure: W2I3VQt4rNkMxv9n18SC7Yr0JaGu1YhQAIqrpVTOqfpNYI7NwZzmUiAFc5myE29wuc5G6VHHz+9OO2YwHUF2NUeEgaomVZZ2SGLCvj16lYud8/fynLmo2/GWFBoQc7dGoXb2DJ0rkxr/FBC7p+uoH2Nry+NK261U+T3goAPGLAmditkL/JCi3sONKpdzdisgKy9gkzZa56LWSv2PxMAxaQiyZBgCirKlO8GtRRbuzsh+PDJ70OPNbeeiw9Pm5AET9TzxPPNy27F85otFfNu0XBX1LEEAHfnGFVNYQgT1w5M/w/WvLnluDpS5yr8Y6h+Ip+y3lg36JdBrqYCWrCaML+QQ7OJssmmgGKUuQtaU68dzLYX2+Nyftdre9o4UIJB2MADMyzyYTE4+2wXoCDWTFh+jUEEk4P1xNGm1dK6n3HnzbIjyh4kWZ7ufA7zzH8xRzkyllm6Gh/TgfaDIfRFvFgHsMARna13Hzu2knhMHRz6OIGNhzzwJXpApMKtylXG6P2Ho28pBsd9SpGyljRL0h/0rDE+1p/0A0E5EIkKlapErH2IDjRH0lfF0K+EzmbNA9mow9PHLQ5YSuq8VjwK/gAzgegmbXW349M9SgV6sr0OgYCG/C9/49HHWqWP1XwvK3YnCKv/bnP1wQHqX5ys56WIAlyodTGZotStQ2t/tb+Q=
