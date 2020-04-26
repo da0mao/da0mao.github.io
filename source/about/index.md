@@ -7,5 +7,4 @@ Have a nice day!😄
 
 > maologue is a combination of "mao" and suffix "-logue". Where”mao” comes from "Da Mao (aka. Big cat)", which is typically used to refer to any of the five living members of the genus Panthera, namely tiger, lion, jaguar, leopard, and snow leopard. These species are able to roar. While “-logue” is a combining form used in the names of kinds of discourse, spoken or written.
 
-![](/images/og_image.png)
 

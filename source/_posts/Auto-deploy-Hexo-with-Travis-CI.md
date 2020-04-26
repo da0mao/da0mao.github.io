@@ -166,3 +166,6 @@ All set! From now on, you can focus on writing the posts and let Travis CI does 
 # **Update_24Aug2019** 
 Further you can replace `- hexo d` with `- gulp` if you have adopted it [Optimize Hexo With Gulp](https://maologue.com/Optimize-Hexo-with-Gulp/). Remember to push `gulpfile.js` to `blog-source` branch, too. 
 
+---
+
+![Automatically deploy Hexo with Travis CI 3](/images/Travis/Auto-deploy-Hexo-with-Travis-CI.jpg)

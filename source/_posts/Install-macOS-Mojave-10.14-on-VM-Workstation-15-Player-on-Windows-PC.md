@@ -20,26 +20,26 @@ Not being able to connect to an iOS device made me go to VMware, and then it wor
 4. Install VMware and open
 
 5. Create Virtual Machine
-![](/images/macOS/post-images/1560436901048.PNG)
-![](/images/macOS/post-images/1560436850655.PNG)
-![](/images/macOS/post-images/1560436854371.PNG)
-![](/images/macOS/post-images/1560436857543.PNG)
+![](/images/macOS/1560436901048.PNG)
+![](/images/macOS/1560436850655.PNG)
+![](/images/macOS/1560436854371.PNG)
+![](/images/macOS/1560436857543.PNG)
 
 6. Edit Settings
-![](/images/macOS/post-images/1560436860640.PNG)
-![](/images/macOS/post-images/1560436863450.PNG)
-![](/images/macOS/post-images/1560436866973.PNG)
+![](/images/macOS/1560436860640.PNG)
+![](/images/macOS/1560436863450.PNG)
+![](/images/macOS/1560436866973.PNG)
 
 7. Rmove Hard Disk and add the new one with downloaded vmdk file
-![](/images/macOS/post-images/1560436871479.PNG)
-![](/images/macOS/post-images/1560436876217.PNG)
-![](/images/macOS/post-images/1560436881119.PNG)
+![](/images/macOS/1560436871479.PNG)
+![](/images/macOS/1560436876217.PNG)
+![](/images/macOS/1560436881119.PNG)
 
 8. I found changing USB compatiblity to 2.0 (and connect your iPhone to a USB 2.0 port can help macOS recognize your iPhone)
-![](/images/macOS/post-images/1560436884514.PNG)
+![](/images/macOS/1560436884514.PNG)
 
 7. Play Vrtual Machine
-![](/images/macOS/post-images/1560437656524.PNG)
+![](/images/macOS/1560437656524.PNG)
 ----------
 
 Reference:
