@@ -168,5 +168,5 @@ Further you can replace `- hexo d` with `- gulp` if you have adopted it [Optimiz
 
 ---
 
-![Automatically deploy Hexo with Travis CI 3](/images/Travis/Auto-deploy-Hexo-with-Travis-CI.jpg)
+![Automatically deploy Hexo with Travis CI 3](/images/Travis/1566036594777.jpg)
 
