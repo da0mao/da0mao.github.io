@@ -17,8 +17,7 @@ script:
 after_success:
  - git config --global user.name "da0mao"
  - git config --global user.email "da0mao@hotmail.com"
- - sed -i'' "s~git@github.com:da0mao/da0mao.github.io.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/da0mao/da0mao.github.io.git~"
-  _config.yml
+ - sed -i'' "s~git@github.com:da0mao/da0mao.github.io.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/da0mao/da0mao.github.io.git~" _config.yml
  - hexo d
 env:
   global:
