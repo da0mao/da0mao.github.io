@@ -7,18 +7,18 @@ cache:
   directories:
   - node_modules
 before_install:
- - npm install -g hexo-cli
- - npm install gulp -g
- - git clone -b master https://github.com/da0mao/hexo-theme-next.git themes/next
+- npm install -g hexo-cli
+- npm install gulp -g
+- git clone -b master https://github.com/da0mao/hexo-theme-next.git themes/next
 install:
- - npm install
-#script:
-# - hexo g
+- npm install
+# script:
+# - hexo generate
 after_success:
- - git config --global user.name "da0mao"
- - git config --global user.email "da0mao@hotmail.com"
- - sed -i'' "s~git@github.com:da0mao/da0mao.github.io.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/da0mao/da0mao.github.io.git~" _config.yml
- - gulp
+- git config --global user.name "da0mao"
+- git config --global user.email "da0mao@hotmail.com"
+- sed -i'' "s~git@github.com:da0mao/da0mao.github.io.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/da0mao/da0mao.github.io.git~" _config.yml
+- gulp
 env:
   global:
   - secure: W2I3VQt4rNkMxv9n18SC7Yr0JaGu1YhQAIqrpVTOqfpNYI7NwZzmUiAFc5myE29wuc5G6VHHz+9OO2YwHUF2NUeEgaomVZZ2SGLCvj16lYud8/fynLmo2/GWFBoQc7dGoXb2DJ0rkxr/FBC7p+uoH2Nry+NK261U+T3goAPGLAmditkL/JCi3sONKpdzdisgKy9gkzZa56LWSv2PxMAxaQiyZBgCirKlO8GtRRbuzsh+PDJ70OPNbeeiw9Pm5AET9TzxPPNy27F85otFfNu0XBX1LEEAHfnGFVNYQgT1w5M/w/WvLnluDpS5yr8Y6h+Ip+y3lg36JdBrqYCWrCaML+QQ7OJssmmgGKUuQtaU68dzLYX2+Nyftdre9o4UIJB2MADMyzyYTE4+2wXoCDWTFh+jUEEk4P1xNGm1dK6n3HnzbIjyh4kWZ7ufA7zzH8xRzkyllm6Gh/TgfaDIfRFvFgHsMARna13Hzu2knhMHRz6OIGNhzzwJXpApMKtylXG6P2Ho28pBsd9SpGyljRL0h/0rDE+1p/0A0E5EIkKlapErH2IDjRH0lfF0K+EzmbNA9mow9PHLQ5YSuq8VjwK/gAzgegmbXW349M9SgV6sr0OgYCG/C9/49HHWqWP1XwvK3YnCKv/bnP1wQHqX5ys56WIAlyodTGZotStQ2t/tb+Q=
