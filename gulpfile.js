@@ -65,7 +65,7 @@ gulp.task('minify-img', function() {
         .pipe(imagemin([
 					imagemin.gifsicle({interlaced: true}),
 					imagemin.jpegtran({progressive: true}),
-					imagemin.optipng({optimizationLevel: 5}),
+					/*imagemin.optipng({optimizationLevel: 5}),*/
 					imagemin.svgo({
 						plugins: [
 							{removeViewBox: true},
@@ -85,7 +85,7 @@ gulp.task('minify-js', function() {
 });
 
 
-gulp.task('compress', gulp.series('minify-html', 'minify-css','minify-js'));
+gulp.task('compress', gulp.series('minify-html', 'minify-css', 'minify-img', 'minify-js'));
 
 gulp.task('default', gulp.series('clean', 'generate', 'compress', 'deploy'));
 
