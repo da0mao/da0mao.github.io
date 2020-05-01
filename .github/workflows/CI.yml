@@ -1,4 +1,4 @@
-name: BlogCI
+name: CI
 
 on: [push]
 
@@ -11,25 +11,23 @@ jobs:
     - name: Download Source file
       uses: actions/checkout@v2
       with:
-        ref: blog-source # 此处修改为自己存放 Hexo 源文件的分支
+        ref: blog-source
 
     - name: Prepare Node env
       uses: actions/setup-node@v1
       with:
-        node-version: "10.x" # 此处和自己的nodejs版本对应(10,12测试成功)
+        node-version: "10.x"
 
     - name: Set Env
       env: 
         GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}  
       run: |
-        git config --global user.name 'da0mao' # github用户名
-        git config --global user.email 'da0mao@hotmail.com' # github邮箱
+        git config --global user.name 'da0mao'
+        git config --global user.email 'da0mao@hotmail.com'
         sed -i "s/GITHUB_ACCESS_TOKEN/$GITHUB_ACCESS_TOKEN/g" ./_config.yml
 
     - name: Hexo
       run: |
         npm i -g hexo-cli
         npm i
-        gulp
-        # hexo clean && hexo g && hexo d
-        
+        hexo clean && hexo g && hexo d
