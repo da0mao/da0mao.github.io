@@ -63,7 +63,7 @@ gulp.task('minify-html', function() {
 gulp.task('minify-img', function() {
     return gulp.src('./public/images/**/*')
         .pipe(imagemin([
-					imagemin.gifsicle({interlaced: true}),
+					/*imagemin.gifsicle({interlaced: true}),*/
 					imagemin.jpegtran({progressive: true}),
 					/*imagemin.optipng({optimizationLevel: 5}),*/
 					imagemin.svgo({
