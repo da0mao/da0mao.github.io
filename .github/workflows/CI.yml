@@ -30,6 +30,5 @@ jobs:
       run: |
         git clone -b master https://github.com/da0mao/hexo-theme-next.git themes/next
         npm i -g hexo-cli
-        npm install gulp -g
         npm i
-        gulp
+        hexo clean && hexo g && hexo d
