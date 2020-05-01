@@ -3,6 +3,7 @@ title: How to calculate AQI
 author: Jun Hu
 tags:
   - AQI
+  - PM2.5
 date: 2020-04-30 22:07:54
 ---
 
