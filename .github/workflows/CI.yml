@@ -20,11 +20,11 @@ jobs:
 
     - name: Set Env
       env: 
-        TOKEN: ${{ secrets.TOKEN }}  
+        DAMAO_TOKEN: ${{ secrets.DAMAO_TOKEN }}  
       run: |
         git config --global user.name 'da0mao'
         git config --global user.email 'da0mao@hotmail.com'
-        sed -i "s/TOKEN/$TOKEN/g" ./_config.yml
+        sed -i "s/DAMAO_TOKEN/$DAMAO_TOKEN/g" ./_config.yml
 
     - name: Hexo
       run: |
