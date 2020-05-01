@@ -16,18 +16,24 @@ $I=\frac{I_{high}-I_{low}}{C_{high}-C_{low}}(C-C_{low})+I_{low}$
 where:
 
 $I$=the AQI
+
 $C$=the pollutant concentration
+
 $C_{low}$=the concentration breakpoint that is $\leq C$
+
 $C_{high}$=the concentration breakpoint that is  $\geq C$
+
 $I_{low}$=the index breakpoint corresponding to $C_{low}$
+
 $I_{high}$=the index breakpoint corresponding to $C_{high}$
+
 
 It is the breakpoint which makes AQI values vary in different countries.
 
 Below is a table of PM2.5 breakpoints from [China](http://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf) and the [US](https://www.airnow.gov/sites/default/files/2018-05/aqi-technical-assistance-document-may2016.pdf):
 
 | Index   | US                       |China      |
-|-----------------------------------------------------|
+|---------|--------------------------|----------------|
 | 0            | 0                        | 0         |
 | 50           | 12                       | 35        |
 | 100          | 35.4                     | 75        |

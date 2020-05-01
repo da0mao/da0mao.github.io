@@ -79,7 +79,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:da0mao/da0mao.github.io.git
+  repo: https://GITHUB_ACCESS_TOKEN@github.com/da0mao/da0mao.github.io.git
   branch: master
 feed:
     type: atom
