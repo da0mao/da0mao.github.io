@@ -22,17 +22,17 @@ public enum States {
 Test Case:
 ```java
 @Test
-    public void enumtest(){
-        States state[] ={States.processing,States.pending};
-        int i;
-        for (i=0;i<2;i++) {
-            if (state[i].isprocessing()) {
-            System.out.println(i + 1 + " :true");
-            } else {
-            System.out.println(i + 1 + " :false");
-            }
-        }
-    }
+public void enumtest(){
+	States state[] ={States.processing,States.pending};
+	int i;
+	for (i=0;i<2;i++) {
+		if (state[i].isprocessing()) {
+		System.out.println(i + 1 + " :true");
+		} else {
+		System.out.println(i + 1 + " :false");
+		}
+	}
+}
 ```
 Output in Console:
 
@@ -60,10 +60,10 @@ public class Car {
 Test Case:
 ```java
 @Test
-    public void loggingtest(){
-        Car car1 = new Car();
-        car1.Process("damaoche");
-    }
+public void loggingtest(){
+	Car car1 = new Car();
+	car1.Process("damaoche");
+}
 ```
 Output in Console:
 ```
@@ -85,10 +85,10 @@ But still I can write a test case.
 Test Case:
 ```java
 @Test
-    public void maintest(){
-        String[] args = {"damao1", "damao2"};
-        Lesson1.main(args);
-    }
+public void maintest(){
+	String[] args = {"damao1", "damao2"};
+	Lesson1.main(args);
+}
 ```
 
 ## Note4-exception handling
@@ -110,11 +110,11 @@ public class Car {
 Test Case
 ```jave
 @Test
-    public void execptiontest(){
-    int inputs[]={1,3};
-    for (int input:inputs){
-        System.out.println( new Car().add(input));
-    }
+public void execptiontest(){
+int inputs[]={1,3};
+for (int input:inputs){
+	System.out.println( new Car().add(input));
+}
 }
 ```
 Output in Console:
@@ -126,18 +126,18 @@ java.lang.RuntimeException: Invalid input: 3
 But it isn't actually handlling the exception. To handle it, add a try-catch block:
 ```java
 @Test
-    public void execptiontest() {
-        int inputs[] = {1, 3};
-        for (int input : inputs) {
-            try {
-                System.out.println(new Car().add(input));
-            } catch (RuntimeException e) {
-                System.out.println(e.getMessage());
-                }
+public void execptiontest() {
+	int inputs[] = {1, 3};
+	for (int input : inputs) {
+		try {
+			System.out.println(new Car().add(input));
+		} catch (RuntimeException e) {
+			System.out.println(e.getMessage());
+			}
 
-            }
-        }
-    }
+		}
+	}
+}
 ```
 Output in Console:
 ```
@@ -146,3 +146,73 @@ Invalid input: 3
 ```
 Now, I start to understand some error messages and maybe even how to resolve some. :)
 
+## Note5-interface
+>Interfaces are used to encode similarities which the classes of various types share, but do not necessarily constitute a class relationship.  [Wikipedia](https://en.wikipedia.org/wiki/Interface_(Java))
+For example, a car and a tank can both drive and stop:
+```java
+public class Car{
+    public void drive() { System.out.println("The car is driving..."); }
+
+    public void stop() { System.out.println("The car is stopping..."); }
+}
+public class Tank{
+    public void drive() { System.out.println("The tank is driving..."); }
+
+    public void stop() { System.out.println("The tank is stopping..."); }
+}
+```
+Test Case:
+```java
+@Test
+public void interfacetesting(){
+    Car v1 =new Car();
+    Tank v2 =new Tank();
+    v1.drive();
+    v1.stop();
+    v2.drive();
+    v2.stop();
+}
+```
+Output in console:
+```
+The car is driving...
+The car is stopping...
+The tank is driving...
+The tank is stopping...
+```
+To introduce the interface `Behavior`:
+```java
+public interface Behavior {
+    void drive();
+    void stop();
+}
+```
+Then update the classes to `implement` the interface:
+```java
+public class Car implements Behavior { //implemets interface
+    public void drive() { System.out.println("The car is driving..."); }
+
+    public void stop() {
+        System.out.println("The car is stopping...");
+    }
+}
+public class Tank implements Behavior { //implemets interface
+    public void drive() { System.out.println("The tank is driving..."); }
+
+    public void stop() {
+        System.out.println("The tank is stopping...");
+    }
+}
+```
+Test Case then can be re-written as follows:
+```java
+@Test
+public void interfacetesting(){
+    Behavior[] behaviors = {new Car(), new Tank()}; //interface variables can refer to any classes implementing this interface
+    for(Behavior each:behaviors){
+        each.drive();
+        each.stop();
+    }
+}
+```
+The output will be the same. Now I can iterate different classes in the same for-loop.
