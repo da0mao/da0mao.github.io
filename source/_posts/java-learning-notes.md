@@ -148,6 +148,7 @@ Now, I start to understand some error messages and maybe even how to resolve som
 
 ## Note5-interface
 >Interfaces are used to encode similarities which the classes of various types share, but do not necessarily constitute a class relationship. --  [Wikipedia](https://en.wikipedia.org/wiki/Interface_(Java))
+
 For example, a car and a tank can both drive and stop:
 ```java
 public class Car{
@@ -231,7 +232,7 @@ The output will be the same. Now I can iterate different classes in the same for
 
 ## Note6-inheritance
 The inheritance seems to be not so recommend, it can be used to avoid duplicated codes as interface but with (maybe) less flexibility.
-To start with, write a class to inherite from:
+To start with, write a class to inherite:
 ```java
 public class Vehicle {
     public void drive() {
