@@ -108,7 +108,7 @@ public class Car {
 }
 ```
 Test Case
-```jave
+```java
 @Test
 public void execptiontest(){
 int inputs[]={1,3};
@@ -147,18 +147,26 @@ Invalid input: 3
 Now, I start to understand some error messages and maybe even how to resolve some. :)
 
 ## Note5-interface
->Interfaces are used to encode similarities which the classes of various types share, but do not necessarily constitute a class relationship.  [Wikipedia](https://en.wikipedia.org/wiki/Interface_(Java))
+>Interfaces are used to encode similarities which the classes of various types share, but do not necessarily constitute a class relationship. --  [Wikipedia](https://en.wikipedia.org/wiki/Interface_(Java))
 For example, a car and a tank can both drive and stop:
 ```java
 public class Car{
-    public void drive() { System.out.println("The car is driving..."); }
+    public void drive() {
+    	System.out.println("The car is driving...");
+    }
 
-    public void stop() { System.out.println("The car is stopping..."); }
+    public void stop() {
+    	System.out.println("The car is stopping...");
+    }
 }
 public class Tank{
-    public void drive() { System.out.println("The tank is driving..."); }
+    public void drive() {
+    	System.out.println("The tank is driving...");
+    }
 
-    public void stop() { System.out.println("The tank is stopping..."); }
+    public void stop() {
+    	System.out.println("The tank is stopping...");
+    }
 }
 ```
 Test Case:
@@ -190,14 +198,18 @@ public interface Behavior {
 Then update the classes to `implement` the interface:
 ```java
 public class Car implements Behavior { //implemets interface
-    public void drive() { System.out.println("The car is driving..."); }
+    public void drive() {
+    	System.out.println("The car is driving...");
+    }
 
     public void stop() {
         System.out.println("The car is stopping...");
     }
 }
 public class Tank implements Behavior { //implemets interface
-    public void drive() { System.out.println("The tank is driving..."); }
+    public void drive() {
+    	System.out.println("The tank is driving...");
+    }
 
     public void stop() {
         System.out.println("The tank is stopping...");
@@ -216,3 +228,45 @@ public void interfacetesting(){
 }
 ```
 The output will be the same. Now I can iterate different classes in the same for-loop.
+
+## Note6-inheritance
+The inheritance seems to be not so recommend, it can be used to avoid duplicated codes as interface but with (maybe) less flexibility.
+To start with, write a class to inherite from:
+```java
+public class Vehicle {
+    public void drive() {
+        System.out.println("The vehicle is driving...");
+    }
+
+    public void stop() {
+        System.out.println("The vehicle is stopping...");
+    }
+```
+To inherite it, use `extends`:
+```java
+public class NewCar extends Vehicle{
+
+}
+public class NewTank extends Vehicle{
+}
+```
+Test Case:
+```java
+@Test
+public void inheritancetesting(){
+    Vehicle[] vechiles = {new NewCar(),new NewTank()};
+    for(Vehicle each:vechiles){
+        each.drive();
+        each.stop();
+    }
+}
+```
+Output in console:
+```
+The vehicle is driving...
+The vehicle is stopping...
+The vehicle is driving...
+The vehicle is stopping...
+```
+I think I can use interface and inheritance interchangeably, but maybe not.
+
