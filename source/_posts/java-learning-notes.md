@@ -6,7 +6,7 @@ tags:
 date: 2020-05-02 17:57:47
 ---
 
-Start to take some notes when learning Java:
+To help myself to take reference in the furture. I am starting to take some notes when learning Java Marcus Biel's great [tutorials](https://www.youtube.com/playlist?list=PLFmkgh1ckFjH1LaQvs_5pAuaZVVZ_3qcM) .
 
 <!-- more -->
 
@@ -271,3 +271,233 @@ The vehicle is stopping...
 ```
 I think I can use interface and inheritance interchangeably, but maybe not.
 
+## Note7-clone method and more
+
+Actually there were three ways of copying (i.e. the 'more'), see if I can repeat them all.
+
+1. `clone` method in `Object` class
+
+   a. Good practice:
+	```java
+	@Test
+	public void goodclone(){
+		String[] strs1={"a","b","c"};
+		String[] strs2=strs1.clone();
+		System.out.print("strs1:");
+		for (String strs:strs1) {
+			System.out.print(strs);
+			System.out.print(";");
+		}
+		System.out.println("");
+		System.out.print("strs2:");
+		for (String strs:strs2) {
+
+			System.out.print(strs);
+			System.out.print(";");
+		}
+		System.out.println("");
+		if(strs1==strs2){
+			System.out.println("strs1 and strs2 are the same!");
+		}else{
+			System.out.println("strs1 and strs2 are NOT the same!");
+		}
+	}
+	```
+	Output in console:
+	```
+	strs1:a;b;c;
+	strs2:a;b;c;
+	strs1 and strs2 are NOT the same!
+	```
+	Why it is good? Because the contains are strings - immutable objects.
+	
+	b. Not so good but ok practice:
+	Create a class and override the `clone` method:
+	```java
+	public class Car implements Cloneable { //need to implement Cloneable interface
+    public Owner owner; //change it to a object type of Owner and to public so I can test it
+    public Car (String owner){
+        this.owner=owner;
+    }
+    public String whos(){
+        return("The owner is " +owner);
+    }
+    @Override //to override clone method from object class
+    public Car clone(){
+        try {
+            return (Car) super.clone(); //make return type as Car instead of object
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
+	}
+	```
+	Test Case:
+	```java
+	@Test
+    public void okclonetesting(){
+        Car car1=new Car("damao1");
+        Car car2=car1.clone();
+        assertNotSame(car1,car2); //to show that two cars are not the same object
+        assertEquals(car1.whos(),car2.whos()); //to show that car2 is a copy of car1
+    }
+	```
+	So car1 and car2 are not the same object but the owner is the same. Which shows that car2 is a copy of car1.
+	But why not so good? Because of the codes I have to wirte to override `clone` method. Why still ok? Because the contains are still strings, and this is a shallow copy - if the contains are objects they are not copied.
+	
+	c. Bad practice:
+	If the contains are objects and I create a shallow copy of it:
+	Class:
+	```java
+	public class Owner implements Cloneable{ //always remember to implement Cloneable interface!
+		private String name;
+		public Owner(String name){
+			this.name=name;
+		}
+		public String ownersname(){
+			 return (name);
+		}
+		public void changeowner(String newname) {
+        this.name=newname;
+		}
+	}
+	```
+	and also change it in Car class
+	```java
+	...
+	private Owner owner; //change it to a object
+	...
+	public String whos(){
+        return("The owner is " +owner.ownersname()); //to retrive the name value
+    }
+	...
+	```
+	```java
+	Test Case:
+	@Test
+    public void badclonetesting(){
+        Owner owner1=new Owner("damao1");
+        Car car1=new Car(owner1);
+        Car car2=car1.clone();
+        assertNotSame(car1,car2); //to show that two cars are not the same object
+        assertSame(car1.owner,car2.owner); //to show that two owners actually refer the same object
+        car2.owner.changeowner("damao2"); //to change owner2's name and see owner1's name also changes
+        System.out.println("car1: "+ car1.whos());
+        System.out.println("car2: "+ car2.whos());
+    }
+	```
+	Output in console:
+	```
+	car1: The owner is damao1
+	car2: The owner is damao1
+	```
+	Which shows that the owner is not copied.
+	So to copy the owner, first to override `clone` method in Owner class:
+	```java
+	@Override //to override clone method from object class
+    public Owner clone(){
+        try {
+            return (Owner) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
+	```
+	then to rewrite `clone` method in Car class:
+	```java
+	@Override //to override clone method from object class
+    public Car clone(){
+        try {
+            Car car =(Car) super.clone();
+            car.owner=owner.clone();
+            return car;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
+	```
+	Test Case:
+	```java
+	@Test
+    public void badclonetesting(){
+        Owner owner1=new Owner("damao1");
+        Car car1=new Car(owner1);
+        Car car2=car1.clone();
+        assertNotSame(car1,car2); //to show that two cars are not the same object
+        assertNotSame(car1.owner,car2.owner); //to show that two owners are not the same object
+        car2.owner.changeowner("damao2"); //to change owner2's name and see owner1's name does not change now
+        System.out.println("car1: "+ car1.whos());
+        System.out.println("car2: "+ car2.whos());
+    }
+	```
+	Output in console:
+	```
+	car1: The owner is damao1
+	car2: The owner is damao2
+	```
+	It works now, but indeed it is too complicated. It is a good way of practicing though.
+	
+2. constructor
+	To make a copy of itself, create a constructor with itself as the parameter.
+	```java
+	...
+	private String name;
+	public Owner(String name){
+		this.name=name;
+	}
+	public Owner(Owner owner){ //makecopy
+        this.name = name;
+    }
+	...
+	
+	...
+	public Owner owner;
+    public Car (Owner owner){
+        this.owner=owner;
+    }
+	public Car(Car car){ //makecopy
+        this.owner=new Owner(car.owner);
+    }
+	...
+	```
+	Test Case:
+	```java
+	@Test
+    public void constructortesting(){
+        Owner owner1 = new Owner("damao1");
+        Car car1 = new Car(owner1);
+        Car car2 = new Car(car1);
+        assertNotSame(car1,car2);
+        assertNotSame(owner1,car2.owner);
+    }
+	```
+	But constructors don't have meaningful names so can be confusing.
+3. static factory method
+	>Consider static factory methods instead of constructors. -- Joshua Bloch
+	
+	Static factory method has a distinct method name but the logic and the structer looks the same - create a method with itself as the parameter, and return a new object of its type.
+	```java
+	...
+	public static Car newInstance(Car car){
+        return new Car(Owner.newInstance(car.owner));
+    }
+	...
+	
+	...
+	public static Owner newInstance(Owner owner){
+        return new Owner(owner.name);
+    }
+	...
+	```
+	Test Case:
+	```java
+	@Test
+    public void constructortesting(){
+        Owner owner1 = new Owner("damao1");
+        Car car1 = new Car(owner1);
+        Car car2 = Car.newInstance(car1);
+        assertNotSame(car1,car2);
+        assertNotSame(owner1,car2.owner);
+    }
+	```
+That's the end of the first learning notes. I will continute on note with specific topics then.

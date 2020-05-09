@@ -5,7 +5,7 @@ tags:
   - special relativity
 date: 2020-05-04 21:16:11
 ---
-I am following these videos of "Your Daily Equation" and taking some notes here.
+I am following these videos of ["Your Daily Equation"](https://www.youtube.com/playlist?list=PLKy-B3Qf_RDVL6Z_CmgKf0tAbpXTua9mV) and taking notes here for future reference.
 Time dilation was predicted by several authors at the turn of the 20th century. In June 1905, Einstein pointed that this effect concerns the nature of time itself.
 
 <!-- more -->
