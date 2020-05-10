@@ -5,12 +5,12 @@ tags:
   - special relativity
 date: 2020-05-04 21:16:11
 ---
-I am following these videos of ["Your Daily Equation"](https://www.youtube.com/playlist?list=PLKy-B3Qf_RDVL6Z_CmgKf0tAbpXTua9mV) and taking notes here for future reference.
+
 Time dilation was predicted by several authors at the turn of the 20th century. In June 1905, Einstein pointed that this effect concerns the nature of time itself.
 
 <!-- more -->
 
-Professor Green explained it with a "Light clock" and do the calculation in this [video](https://youtu.be/nnVq6gmatHU).
+Professor Brain Greene explained it with a "Light clock" and did the calculations.
 
 ![Time Dilation 1](/images/TimeDilation1.jpg)
 
@@ -33,3 +33,4 @@ Reference:
 
 *- [Albert Einstein: On the Electrodynamics of Moving Bodies](http://www.fourmilab.ch/etexts/einstein/specrel/www/)*
 
+*- [YouTube: Your Daily Equation](https://www.youtube.com/playlist?list=PLKy-B3Qf_RDVL6Z_CmgKf0tAbpXTua9mV)*

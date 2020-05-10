@@ -6,7 +6,18 @@ tags:
 date: 2020-05-02 17:57:47
 ---
 
-To help myself to take reference in the furture. I am starting to take notes while learning Java from Marcus Biel's great [tutorials](https://www.youtube.com/playlist?list=PLFmkgh1ckFjH1LaQvs_5pAuaZVVZ_3qcM) .
+Notes while learning Java from Marcus Biel's [tutorials](https://www.youtube.com/playlist?list=PLFmkgh1ckFjH1LaQvs_5pAuaZVVZ_3qcM) .
+
+## Note1-enum
+enum:
+```java
+public enum States {
+    processing,processed,pending;
+    public boolean isprocessing(){
+        return this == processing;
+    }
+```
+Test Case:
 
 <!-- more -->
 
