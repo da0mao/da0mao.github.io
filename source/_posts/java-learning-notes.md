@@ -6,7 +6,7 @@ tags:
 date: 2020-05-02 17:57:47
 ---
 
-To help myself to take reference in the furture. I am starting to take some notes when learning Java Marcus Biel's great [tutorials](https://www.youtube.com/playlist?list=PLFmkgh1ckFjH1LaQvs_5pAuaZVVZ_3qcM) .
+To help myself to take reference in the furture. I am starting to take notes while learning Java from Marcus Biel's great [tutorials](https://www.youtube.com/playlist?list=PLFmkgh1ckFjH1LaQvs_5pAuaZVVZ_3qcM) .
 
 <!-- more -->
 
@@ -500,4 +500,4 @@ Actually there were three ways of copying (i.e. the 'more'), see if I can repeat
         assertNotSame(owner1,car2.owner);
     }
 	```
-That's the end of the first learning notes. I will continute on note with specific topics then.
+That's the end of the first learning notes. I will continute with specific topics then.

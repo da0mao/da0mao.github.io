@@ -95,3 +95,9 @@ nofollow:
     exclude:
     - exclude1.com
     - exclude2.com
+    
+emoji:
+  enable: true
+  className: github-emoji
+  styles:
+  customEmojis:
