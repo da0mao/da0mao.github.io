@@ -6,9 +6,7 @@ tags:
 date: 2020-05-09 19:02:22
 ---
 
->Java Comparable interface is used to order the objects of the user-defined class. This interface is found in java. lang package and contains only one method named compareTo(Object). It provides a single sorting sequence only, i.e., you can sort the elements on the basis of single data member only.
-
-This post show an example of sorting apples by their types (string), colors (enum) and weights (int).
+Java Comparable interface is used to order the objects of the user-defined class. This interface is found in java. lang package and contains only one method named compareTo(Object). It provides a single sorting sequence only, i.e., you can sort the elements on the basis of single data member only. This post show an example of sorting apples by their types (string), colors (enum) and weights (int).
 
 <!-- more -->
 
