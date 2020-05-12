@@ -1,5 +1,5 @@
 ---
-title: Java Comparable Interface
+title: Java comparable interface
 author: Jun Hu
 tags:
   - Java

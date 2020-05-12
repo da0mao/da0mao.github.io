@@ -1,5 +1,5 @@
 ---
-title: What's the commonality between Java and JavaScript?
+title: What's the commonality between java and javascript?
 author: Jun Hu
 tags:
   - Java

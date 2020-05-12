@@ -1,5 +1,5 @@
 ---
-title: Time Dilation
+title: Explained time dilation with a "light clock"
 author: Jun Hu
 tags:
   - special relativity
