@@ -6,7 +6,7 @@ tags:
 date: 2020-05-12 20:32:42
 ---
 
-Being tired of ${\displaystyle x={\frac {-b\pm {\sqrt {b^{2}-4ac}}}{2a}}\ \ }$?
+Being tired of memorizing ${\displaystyle x={\frac {-b\pm {\sqrt {b^{2}-4ac}}}{2a}}\ \ }$?
 
 
 
@@ -25,6 +25,8 @@ Then we can re-write $b'$ and $c'$ as $b'=-2m$ and $c'=(m+d)(m-d)=m^2-d^2$, thus
 Meanwhile, the roots can be re-written as $x=m \pm d$, where $m=-b'/2$ and $d=\sqrt{m^2-c'}$.
 
 For example, if $x^2-21x+110=0$, from above we have $m=10.5$ and $d=\sqrt{10.5^2-110}=0.5$, so the roots are $x=10.5\pm 0.5$, i.e. 10 and 11.
+
+> These are just notes I took from the amazing videos from 3Blue1Brown. I highly suggest everyone who's interested in details watch it!
 
 ---
 
