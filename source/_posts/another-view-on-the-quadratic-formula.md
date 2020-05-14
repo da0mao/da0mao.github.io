@@ -18,7 +18,7 @@ Suppose we have r and s, such that  $x^2+b'x+c'=(x-r)(x-s)=0$, then it is easy t
 
 Now, think of the middle point m and the deviation d, where $r=m-d$ and $s=m+d$, as show in below snapshot:
 
-![Quadratic](/images/Quadratic2.jpg)
+![Quadratic](/images/Quadratic1.jpg)
 
 Then we can re-write $b'$ and $c'$ as $b'=-2m$ and $c'=(m+d)(m-d)=m^2-d^2$, thus, $m=-b'/2$ and $d^2=m^2-c'$.
 
