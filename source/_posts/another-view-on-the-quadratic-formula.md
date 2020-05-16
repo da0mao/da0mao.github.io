@@ -6,7 +6,8 @@ tags:
 date: 2020-05-12 20:32:42
 ---
 
-Being tired of memorizing ${\displaystyle x={\frac {-b\pm {\sqrt {b^{2}-4ac}}}{2a}}\ \ }$?
+Being tired of memorizing this fomula? Let's take a look at it from a different perspective.
+${\displaystyle x={\frac {-b\pm {\sqrt {b^{2}-4ac}}}{2a}}\ \ }$?
 
 
 

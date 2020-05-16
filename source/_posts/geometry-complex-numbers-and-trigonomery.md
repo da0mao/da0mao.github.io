@@ -7,7 +7,7 @@ tags:
 date: 2020-05-13 22:21:30
 ---
 
-Being tired of memorizing these?
+Being tired of memorizing these formulas? See how a unit circle and the complex numbers can help.
 $\begin{array}{1}\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta\\\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta\end{array}$
 
 <!-- more -->
