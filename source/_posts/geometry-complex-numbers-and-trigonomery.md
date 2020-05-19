@@ -34,13 +34,21 @@ and
 
 $i\sin(\theta+\phi)=i(\cos\theta\sin\phi-\sin\theta\cos\phi)$
 
-For example, $\cos75^o=\cos(45^o+30^o)$, consider it geometrically, is the x axis rotates from $0^o$ first $45^o$ then another $30^o$.
+For example, $\cos75^o=\cos(45^o+30^o)$:
 
-Thus we can easily write $\cos75^o+i\sin75^o=(\cos45^o+i\sin45^o)(\cos30^o+i\sin30^o)$,
+Consider it geometrically, is the x axis rotates from $0^o$ first $45^o$ then another $30^o$.
 
-where the real part $\cos45^o\cos30^o-\sin45^o\sin30^o$ is $cos75^o$,
+Thus we can easily write
 
-and the imaginary part (without i) $cos45^o\sin30^o+\sin45^o\cos30^o$ is $\sin75^o$.
+$\cos75^o+i\sin75^o=(\cos45^o+i\sin45^o)(\cos30^o+i\sin30^o)$,
+
+where the real part
+
+$\cos45^o\cos30^o-\sin45^o\sin30^o$ is $cos75^o$,
+
+and the imaginary part (without i)
+
+$cos45^o\sin30^o+\sin45^o\cos30^o$ is $\sin75^o$.
 
 > These are just notes I took from the amazing videos from 3Blue1Brown. I highly suggest everyone who's interested in details watch it!
 
