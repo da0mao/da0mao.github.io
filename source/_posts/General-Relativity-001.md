@@ -8,7 +8,6 @@ tags:
 
 ---
 
-
 Problem Set 1: Special Relativity
 Reading: Chapter 1 of Carroll
 

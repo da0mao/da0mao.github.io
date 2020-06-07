@@ -18,14 +18,25 @@ $e^{(x+y)}=e^x+e^y$.
 
 1. Show that when you fully expand $\exp(x)\cdot\exp(y)$, each term has the form $\frac{x^k\cdot y^m}{k!\cdot m!}$.
 
+   From Cauchy product,
+   $$
+   \left(\sum_{i=0}^\infty a_i\right) \cdot \left(\sum_{j=0}^\infty b_j\right) = \sum_{k=0}^\infty c_k
+   $$
+   where, $c_k=\sum_{l=0}^k a_l b_{k-l}$
+
 $$
 \begin{align}
-\nonumber\exp(x)\cdot\exp(y)&=\sum_{k}\frac{x^{(k)}}{(k)!}\sum_{m}\frac{y^{(m)}}{(m)!}\\\\
-&=\sum_{k+m}\frac{x^{k}}{k!}\frac{y^{m}}{m!}
+\nonumber\exp(x)\cdot\exp(y)&=\sum_{n=k+m}^{\infty}\frac{x^{n}}{n!}\sum_{m}^{\infty}\frac{y^{m}}{m!}\\\\
+&=\sum_{k}^{\infty}\sum_{m}^{k}\frac{x^{k}}{k!}\frac{y^{m}}{m!}
 \end{align}
 $$
 
 2. Show that when you expand $\exp(x+y)$, each term has the form $\frac{1}{n!}{n\choose k}x^ky^{n-k}$.
+
+	From Binomial theorem, 
+$$
+(x+y)^{n}=\sum _{k=0}^{n}{n \choose k}x^{n-k}y^{k}=\sum _{k=0}^{n}{n \choose k}x^{k}y^{n-k}
+$$
 
 $$
 \begin{align}
@@ -36,18 +47,24 @@ $$
 $$
 
 
-3. Compare the two results above to explain why $\exp(x+y)\exp(x)\cdot\exp(y)$.
+3. Compare the two results above to explain why $\exp(x+y)=\exp(x)\cdot\exp(y)$.
 
 	Compare (1) and (2), as ${n\choose k}=\frac{n!}{k!m!}$,
+	$$
 	\begin{align}
 	\nonumber\exp(x+y)&=\sum_{n=k+m} \frac{1}{n!}\frac{n!}{k!m!}x^ky^m\\\\
 	&=\exp(x)\cdot\exp(y)
 	\end{align}
-
-4. Would this result still hold if x and y are complex numbers? What about matrices?
-	TBD...
+	$$
 	
-> These are just notes I took from the amazing videos from 3Blue1Brown. I highly suggest everyone who's interested in details watch it!
+4. Would this result still hold if x and y are complex numbers? What about matrices?
+	Note that in Binomial theorem, 
+	$$
+	\sum _{k=0}^{n}{n \choose k}x^{n-k}y^{k}=\sum _{k=0}^{n}{n \choose k}x^{k}y^{n-k}
+	$$
+	does NOT work for matrices, so it does NOT hold for matrices.
+
+> These are hints for working our quizzes from one of the video from 3Blue1Brown. I highly suggest everyone who's interested in details watch it. Also, thanks to the great video from [@FlammableMaths](https://twitter.com/FlammableMaths) to explain this.
 
 ---
 
@@ -55,4 +72,6 @@ $$
 Reference:
 
 *- [YouTube: What is Euler's formula actually saying? | Lockdown math ep. 4](https://youtu.be/ZxYOEwM6Wbk)*
+
+*- [Proving the Exponential Functional Equation exp(x+y)=exp(x)exp(y)](https://youtu.be/owdvXpe_-Zc)*
 

@@ -27,7 +27,7 @@ Meanwhile, the roots can be re-written as $x=m \pm d$, where $m=-b'/2$ and $d=\s
 
 For example, if $x^2-21x+110=0$, from above we have $m=10.5$ and $d=\sqrt{10.5^2-110}=0.5$, so the roots are $x=10.5\pm 0.5$, i.e. 10 and 11.
 
-> These are just notes I took from the amazing videos from 3Blue1Brown. I highly suggest everyone who's interested in details watch it!
+> These are just notes I took from the amazing videos from 3Blue1Brown. I highly suggest everyone who's interested in details watch it. The link is down below.
 
 ---
 
