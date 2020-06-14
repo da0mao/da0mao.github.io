@@ -64,8 +64,6 @@ $$
 	$$
 	does NOT work for matrices, so it does NOT hold for matrices.
 
-> These are hints for working our quizzes from one of the video from 3Blue1Brown. I highly suggest everyone who's interested in details watch it. Also, thanks to the great video from [@FlammableMaths](https://twitter.com/FlammableMaths) to explain this.
-
 ---
 
 
