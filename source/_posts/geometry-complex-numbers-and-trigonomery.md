@@ -50,7 +50,6 @@ and the imaginary part (without i)
 
 $cos45^o\sin30^o+\sin45^o\cos30^o$ is $\sin75^o$.
 
-> These are just notes I took from the amazing videos from 3Blue1Brown. I highly suggest everyone who's interested in details watch it. The link is down below.
 
 ---
 
