@@ -10,11 +10,11 @@ Time dilation was predicted by several authors at the turn of the 20th century. 
 
 <!-- more -->
 
-Professor Brain Greene explained it with a "Light clock" and did the calculations.
+In below it’s explained it with a "Light clock”.
 
 ![Time Dilation 1](/images/TimeDilation1.jpg)
 
-Here are some notes:
+
 $L'^2=\Delta t^2_S c^2=L^2+v\Delta t^2_S$ (Pythagorean theorem)
 
 thus,$L=\Delta t_S \sqrt{c^2-v^2}$
