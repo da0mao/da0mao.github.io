@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/site/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/site/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/site/favicon-16x16.png">
+  <link rel="mask-icon" href="/site/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"maologue.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="In this post I am to follow DrPhysicsA’s excellent explanation (video provided at the end) and to provide some ideas myself.I am also planning to re-write it afterwards - based on my own understanding">
+<meta name="keywords" content="special relativity,general relativity,tensor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Understand and Derive Einstein Field Equations">
+<meta property="og:url" content="https://maologue.com/Understand-and-derive-Einstein-field-equations/index.html">
+<meta property="og:site_name" content="maologue">
+<meta property="og:description" content="In this post I am to follow DrPhysicsA’s excellent explanation (video provided at the end) and to provide some ideas myself.I am also planning to re-write it afterwards - based on my own understanding">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-06-14T08:52:11.638Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Understand and Derive Einstein Field Equations">
+<meta name="twitter:description" content="In this post I am to follow DrPhysicsA’s excellent explanation (video provided at the end) and to provide some ideas myself.I am also planning to re-write it afterwards - based on my own understanding">
+
+<link rel="canonical" href="https://maologue.com/Understand-and-derive-Einstein-field-equations/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Understand and Derive Einstein Field Equations | maologue</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141659241-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-141659241-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">maologue</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://maologue.com/Understand-and-derive-Einstein-field-equations/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/site/avatar.png">
+      <meta itemprop="name" content="Jun Hu">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="maologue">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Understand and Derive Einstein Field Equations
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 10-Aug-2019 21:58:00" itemprop="dateCreated datePublished" datetime="2019-08-10T21:58:00+08:00">10-Aug-2019</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>In this post I am to follow DrPhysicsA’s excellent explanation (video provided at the end) and to provide some ideas myself.<br>I am also planning to re-write it afterwards - based on my own understanding. </p>
+<a id="more"></a>
+
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p>The Einstein field equations (EFE; also known as Einstein’s equations) comprise the set of 10 equations in Albert Einstein’s general theory of relativity that describe the fundamental interaction of gravitation as a result of spacetime being curved by mass and energy. First published by Einstein in 1915 as a tensor equation, the EFE relate local spacetime curvature (expressed by the Einstein tensor) with the local energy and momentum within that spacetime (expressed by the stress–energy tensor).</p>
+</blockquote>
+<p>First let’s take a look at these equations (why “these” ? see below):<br>$$<br>R_{\mu\nu}-{\textstyle\frac12}Rg_{\mu\nu}-\Lambda g_{\mu\nu}=-\frac{8\pi G}{c^4}T_{\mu\nu}<br>$$<br>where $R_{\mu \nu}$ is the Ricci curvature tensor, R is the scalar curvature, $g_{\mu nu}$ is the metric tensor, Λ is the cosmological constant, G is Newton’s gravitational constant, c is the speed of light in vacuum, and $T_{\mu \nu}$ is the stress–energy momentum tensor. </p>
+<p>$\mu$ and $\nu$ have numbers from 0 to 3, so these tensors with indices have 4x4=16 “versions” while 6 of them are duplicates, so there are in total 10 equations. </p>
+<p>The equations balance two things: Curvature of the spacetime on the left and mass/energy on the right. Thus some may say:</p>
+<p><strong><em>Mass tells spacetime how to curve and curved spacetime tells mass how to move.</em></strong></p>
+<hr>
+<h1 id="Metric-Tensor"><a href="#Metric-Tensor" class="headerlink" title="Metric Tensor"></a>Metric Tensor</h1><p>Say there is a field and the height of the field is $\Phi$, then the change of the height $d\Phi$ in the $x^n$ coordinator system (for e.g. if n=3 then it is a 3-D space with coordinators of $x^1, x^2 \ and \ x^3$) can be descripted as:</p>
+<p>$$<br>\begin{align}<br>d\Phi&amp;=\frac{\partial\Phi}{\partial x^1}dx^1+\frac{\partial\Phi}{\partial x^2}dx^2\cdots\nonumber\\<br>&amp;=\sum_n{\frac{\partial\Phi}{\partial x^n}dx^n}<br>  \label{eq:1}<br>\end{align}<br>$$</p>
+<p><em>Consider a $y^1$ in $y$ coordinator system, and again $x^1, x^2…etc.$ in $x$ coordinator system, then use chain rule we have</em><br>$$<br>\begin{align}<br>\frac{d\Phi}{dy^1}&amp;=\frac{\partial\Phi}{\partial x^1}\frac{\partial x^1}{\partial y^1}+\frac{\partial\Phi}{\partial x^2}\frac{\partial x^2}{\partial y^1}\cdots\nonumber\\<br>&amp;=\sum_m\frac{\partial\Phi}{\partial x^m}\frac{\partial x^m}{\partial y^1}\nonumber<br>\end{align}<br>$$<br>$$<br>\begin{equation}<br>\frac{\partial \Phi}{\partial y^n}=\sum_m{\frac{\partial\Phi}{\partial x^m}\frac{\partial x^m}{\partial y^n}}<br>  \label{eq:2}<br>\end{equation}<br>$$</p>
+<blockquote>
+<p>Note: Equation \eqref{eq:2} is a collection of $n$ equations</p>
+</blockquote>
+<p>Now we transform equation \eqref{eq:1} in a vector (rank 1 tensor) form by letting $d\Phi=V_y^n$ the change of height to be a vector in y coordinator system, and $dx^n=V_x^m$ the change of space to be a vector in x coordinator system:<br>$$<br>\begin{equation}<br>V_y^n=\sum_m{\frac{\partial y^n}{\partial x^m}V_x^m}<br>  \label{eq:3}<br>\end{equation}<br>$$</p>
+<p>Now consider a rank 2 tensor, which is a combination of two vectors $T^{mn}=A^nB^n$</p>
+<p>Substitute it into \eqref{eq:3}<br>$$<br>\begin{align}<br>T_y^{mn}&amp;=A^mB^n\nonumber\\<br>&amp;=\sum_{r,s}{\frac{\partial y^m}{\partial x^r}A_x^r\frac{\partial y^n}{\partial x^s}B_x^s}\nonumber\\<br>&amp;=\sum_{r,s}{\frac{\partial y^m}{\partial x^r}\frac{\partial y^n}{\partial x^s}}T_x^{rs}<br>\label{eq:4}<br>\end{align}<br>$$</p>
+<blockquote>
+<p>Equation \eqref{eq:4} is a contravariant transformation</p>
+<p>Note: Equation \eqref{eq:4} is now a collection of $m\times n$ functions</p>
+</blockquote>
+<p>Similarly,<br>$$<br>\begin{equation}<br>T_{mn}(y)=\sum_{r,s}{\frac{\partial x^r}{\partial y^m}\frac{\partial x^s}{\partial y^n}T_{rs}(x)}<br>\label{eq:5}<br>\end{equation}<br>$$</p>
+<blockquote>
+<p>Equation \eqref{eq:5} is a covariant transformation</p>
+<p>or we can use prime coordinators to avoid confusions caused by $T_y \ and \  T(y)$</p>
+<p>Such as $$T_{mn}=\sum_{r,s}{\frac{\partial x^r}{\partial y^m}\frac{\partial x^s}{\partial y^n}T_{mn}’}$$</p>
+</blockquote>
+<p>Now we need to discuss some Pythagoras theorem:</p>
+<p>Usually we write it as $ds^2=\sum_n{dx^ndx^n}$ but here by introducing Kronecker delta $\delta_{mn}$ we can write it as $ds^2=\delta_{mn}\sum_{m,n}{dx^m dx^n}$, where<br>$$<br>\begin{equation}<br>\delta_{mn}=\{<br>\begin{array}{l}<br>1\cdots m=n\\<br>0\cdots m\neq n<br>\end{array}\nonumber<br>\end{equation}<br>$$</p>
+<blockquote>
+<p>This can also be written in the matrix form, for e.g. in 3-D:<br>$$<br>\left\langle\begin{bmatrix}<br>1&amp;0&amp;0\\<br>0&amp;1&amp;0\\<br>0&amp;0&amp;1\\<br>\end{bmatrix},(\begin{bmatrix}<br>dx^1\\<br>dx^2\\<br>dx^3<br>\end{bmatrix}\otimes\begin{bmatrix}<br>dx^1&amp;dx^2&amp;dx^3<br>\end{bmatrix})\right\rangle_F={dx^1}^2+{dx^2}^2+{dx^3}^2<br>$$<br>the main point is $\delta_{mn}$ is a diagonal matrix.</p>
+</blockquote>
+<p>Rewrite \eqref{eq:1} as $dx^m=\frac{\partial x^m}{\partial y^r}dy^r$(getting rid of the summation terms i.e. $\sum$ mark from now on) and substituting it into new Pythagoras we get:<br>$$<br>\begin{align}<br>ds^2&amp;=\delta_{mn}\frac{\partial x^m}{\partial y^r}dy^r\frac{\partial x^n}{\partial y^s}dy^s\nonumber\\<br>&amp;=\boxed{\delta_{mn}\frac{\partial x^m}{\partial y^r}\frac{\partial x^n}{\partial y^s}}dy^rdy^s\nonumber\\<br>&amp;=g_{mn}dy^rdy^s<br>\label{eq:6}<br>\end{align}<br>$$<br>Here comes metric tensor $g_{mn}$ (the boxed part in above equation)!</p>
+<h1 id="Christoffel-Symbol-Gamma"><a href="#Christoffel-Symbol-Gamma" class="headerlink" title="Christoffel Symbol $\Gamma$"></a>Christoffel Symbol $\Gamma$</h1><p>Now to discuss the relations between derivatives for two tensors ($W_{mn}(x)=V_{mn}(x)$)<br>$$<br>\begin{align}<br>T_{mn}(y)&amp;=\frac{\partial x^r}{\partial y^m}\frac{\partial x^s}{\partial y^n}T_{rs}(x)\nonumber\\<br>&amp;=\frac{\partial x^r}{\partial y^m}\frac{\partial x^s}{\partial y^n}\frac{\partial V_r(x)}{\partial x^s}\nonumber\\<br>&amp;=\frac{\partial x^r}{\partial y^m}\frac{\partial V_r{x}}{\partial y^n}\nonumber<br>\end{align}<br>$$</p>
+<p>$$<br>\begin{align}<br>\frac{\partial V_m(y)}{\partial y^n}&amp;=\frac{\partial }{\partial y^n}(\frac{\partial x^r}{y^m}V_r(x))\nonumber\\<br>&amp;=\frac{\partial x^r}{\partial y^m}\frac{\partial V_r(x)}{\partial y^n}+\boxed{\frac {\partial }{\partial y^n}\frac{\partial x^r}{\partial y^m}}V_r(x)\nonumber\\<br>&amp;=\frac{\partial x^r}{\partial y^m}\frac{\partial V_r(x)}{\partial y^n}+\Gamma_{mn}^rV_r(x)=\nabla_nV_m<br>\end{align}<br>$$</p>
+<h1 id="Curvature"><a href="#Curvature" class="headerlink" title="Curvature"></a>Curvature</h1><p>………………………………………………..</p>
+<p>………………………………………………..</p>
+<h2 id="Ricci-Tensor"><a href="#Ricci-Tensor" class="headerlink" title="Ricci Tensor"></a>Ricci Tensor</h2><p>………………………………………………..</p>
+<p>………………………………………………..</p>
+<h2 id="Curvature-Scalar"><a href="#Curvature-Scalar" class="headerlink" title="Curvature Scalar"></a>Curvature Scalar</h2><p>………………………………………………..</p>
+<p>………………………………………………..</p>
+<h1 id="Stress-Energy-Momentum-Tensor"><a href="#Stress-Energy-Momentum-Tensor" class="headerlink" title="Stress Energy Momentum Tensor"></a>Stress Energy Momentum Tensor</h1><p>………………………………………………..</p>
+<p>………………………………………………..</p>
+<h1 id="Cosmological-Constant"><a href="#Cosmological-Constant" class="headerlink" title="Cosmological Constant"></a>Cosmological Constant</h1><p>………………………………………………..</p>
+<p>………………………………………………..</p>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p>………………………………………………..</p>
+<p>………………………………………………..</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Jun Hu
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://maologue.com/Understand-and-derive-Einstein-field-equations/" title="Understand and Derive Einstein Field Equations">https://maologue.com/Understand-and-derive-Einstein-field-equations/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/special-relativity/" rel="tag"># special relativity</a>
+              <a href="/tags/general-relativity/" rel="tag"># general relativity</a>
+              <a href="/tags/tensor/" rel="tag"># tensor</a>
+          </div>
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-6975888457795719" data-ad-slot="8820815376"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Optimize-Hexo-with-Lazy-loading/" rel="prev" title="Optimize Hexo With Lazy Loading">
+      <i class="fa fa-chevron-left"></i> Optimize Hexo With Lazy Loading
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Update-Hexo-blog-layout-for-theme-icarus/" rel="next" title="Update Hexo Blog Layout for Theme Icarus">
+      Update Hexo Blog Layout for Theme Icarus <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Metric-Tensor"><span class="nav-number">2.</span> <span class="nav-text">Metric Tensor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Christoffel-Symbol-Gamma"><span class="nav-number">3.</span> <span class="nav-text">Christoffel Symbol $\Gamma$</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Curvature"><span class="nav-number">4.</span> <span class="nav-text">Curvature</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ricci-Tensor"><span class="nav-number">4.1.</span> <span class="nav-text">Ricci Tensor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Curvature-Scalar"><span class="nav-number">4.2.</span> <span class="nav-text">Curvature Scalar</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stress-Energy-Momentum-Tensor"><span class="nav-number">5.</span> <span class="nav-text">Stress Energy Momentum Tensor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cosmological-Constant"><span class="nav-number">6.</span> <span class="nav-text">Cosmological Constant</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Summary"><span class="nav-number">7.</span> <span class="nav-text">Summary</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jun Hu" src="/site/avatar.png">
+  <p class="site-author-name" itemprop="name">Jun Hu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:da0mao@hotmail.com" title="E-Mail → mailto:da0mao@hotmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/da0mao/" title="Instagram → https://www.instagram.com/da0mao/" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jun Hu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Mist</a>
+    <a href="https://github.com/da0mao/da0mao.github.io/actions" title="GitHub Actions" rel="external nofollow noopener noreferrer" target="_blank"> <img src="https://github.com/da0mao/da0mao.github.io/workflows/GitHub%20Actions/badge.svg?branch=blog-source" alt="GitHub Actions">
+	</a>
+	</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

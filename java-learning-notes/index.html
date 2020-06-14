@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/site/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/site/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/site/favicon-16x16.png">
+  <link rel="mask-icon" href="/site/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"maologue.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Notes while learning Java from Marcus Biel’s tutorials . Note1-enumenum: 12345public enum States &amp;#123;    processing,processed,pending;    public boolean isprocessing()&amp;#123;        return this == pr">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Learning Notes">
+<meta property="og:url" content="https://maologue.com/java-learning-notes/index.html">
+<meta property="og:site_name" content="maologue">
+<meta property="og:description" content="Notes while learning Java from Marcus Biel’s tutorials . Note1-enumenum: 12345public enum States &amp;#123;    processing,processed,pending;    public boolean isprocessing()&amp;#123;        return this == pr">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-06-14T08:52:11.638Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java Learning Notes">
+<meta name="twitter:description" content="Notes while learning Java from Marcus Biel’s tutorials . Note1-enumenum: 12345public enum States &amp;#123;    processing,processed,pending;    public boolean isprocessing()&amp;#123;        return this == pr">
+
+<link rel="canonical" href="https://maologue.com/java-learning-notes/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Java Learning Notes | maologue</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141659241-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-141659241-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">maologue</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://maologue.com/java-learning-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/site/avatar.png">
+      <meta itemprop="name" content="Jun Hu">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="maologue">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java Learning Notes
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 02-May-2020 17:57:47" itemprop="dateCreated datePublished" datetime="2020-05-02T17:57:47+08:00">02-May-2020</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Notes while learning Java from Marcus Biel’s <a href="https://www.youtube.com/playlist?list=PLFmkgh1ckFjH1LaQvs_5pAuaZVVZ_3qcM" rel="external nofollow noopener noreferrer" target="_blank">tutorials</a> .</p>
+<h2 id="Note1-enum"><a href="#Note1-enum" class="headerlink" title="Note1-enum"></a>Note1-enum</h2><p>enum:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> States &#123;</span><br><span class="line">    processing,processed,pending;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isprocessing</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span> == processing;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Test Case:</p>
+<a id="more"></a>
+
+<h2 id="Note1-enum-1"><a href="#Note1-enum-1" class="headerlink" title="Note1-enum"></a>Note1-enum</h2><p>enum:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> States &#123;</span><br><span class="line">    processing,processed,pending;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isprocessing</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span> == processing;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Test Case:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enumtest</span><span class="params">()</span></span>&#123;</span><br><span class="line">	States state[] =&#123;States.processing,States.pending&#125;;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (state[i].isprocessing()) &#123;</span><br><span class="line">		System.out.println(i + <span class="number">1</span> + <span class="string">" :true"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		System.out.println(i + <span class="number">1</span> + <span class="string">" :false"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Output in Console:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 :true</span><br><span class="line">2 :false</span><br></pre></td></tr></table></figure>
+
+<h2 id="Note2-logging"><a href="#Note2-logging" class="headerlink" title="Note2-logging"></a>Note2-logging</h2><p>First, import the <a href="http://www.slf4j.org/manual.html" rel="external nofollow noopener noreferrer" target="_blank">framwork</a>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br></pre></td></tr></table></figure>
+
+<p>Class:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Process</span> <span class="params">(String input)</span></span>&#123;</span><br><span class="line">            Logger log = LoggerFactory.getLogger(Car.class);</span><br><span class="line">            log.info(<span class="string">"hello&#123;&#125;"</span>,input);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Test Case:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loggingtest</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Car car1 = <span class="keyword">new</span> Car();</span><br><span class="line">	car1.Process(<span class="string">"damaoche"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Output in Console:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7 [main] INFO com.junhu.learning.lesson1.Car - hellodamaoche</span><br></pre></td></tr></table></figure>
+
+<h2 id="Note3-main-method"><a href="#Note3-main-method" class="headerlink" title="Note3-main method"></a>Note3-main method</h2><p>Class:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Lesson1</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (String arg:args) &#123;</span><br><span class="line">                <span class="keyword">new</span> Car().Process(arg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Now I can run the class Lesson1 or the main method directly.<br>But still I can write a test case.<br>Test Case:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">maintest</span><span class="params">()</span></span>&#123;</span><br><span class="line">	String[] args = &#123;<span class="string">"damao1"</span>, <span class="string">"damao2"</span>&#125;;</span><br><span class="line">	Lesson1.main(args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Note4-exception-handling"><a href="#Note4-exception-handling" class="headerlink" title="Note4-exception handling"></a>Note4-exception handling</h2><p>Write some switch cases to throw an exception:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> input)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> (input) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Invalid input: "</span> + input);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Test Case</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execptiontest</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">int</span> inputs[]=&#123;<span class="number">1</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> input:inputs)&#123;</span><br><span class="line">	System.out.println( <span class="keyword">new</span> Car().add(input));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Output in Console:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">java.lang.RuntimeException: Invalid input: 3</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>But it isn’t actually handlling the exception. To handle it, add a try-catch block:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execptiontest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> inputs[] = &#123;<span class="number">1</span>, <span class="number">3</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> input : inputs) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="keyword">new</span> Car().add(input));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (RuntimeException e) &#123;</span><br><span class="line">			System.out.println(e.getMessage());</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Output in Console:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">Invalid input: 3</span><br></pre></td></tr></table></figure>
+
+<p>Now, I start to understand some error messages and maybe even how to resolve some. :)</p>
+<h2 id="Note5-interface"><a href="#Note5-interface" class="headerlink" title="Note5-interface"></a>Note5-interface</h2><blockquote>
+<p>Interfaces are used to encode similarities which the classes of various types share, but do not necessarily constitute a class relationship. –  <a href="https://en.wikipedia.org/wiki/Interface_(Java)" rel="external nofollow noopener noreferrer" target="_blank">Wikipedia</a></p>
+</blockquote>
+<p>For example, a car and a tank can both drive and stop:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">"The car is driving..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">"The car is stopping..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tank</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">"The tank is driving..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">"The tank is stopping..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Test Case:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">interfacetesting</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Car v1 =<span class="keyword">new</span> Car();</span><br><span class="line">    Tank v2 =<span class="keyword">new</span> Tank();</span><br><span class="line">    v1.drive();</span><br><span class="line">    v1.stop();</span><br><span class="line">    v2.drive();</span><br><span class="line">    v2.stop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Output in console:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The car is driving...</span><br><span class="line">The car is stopping...</span><br><span class="line">The tank is driving...</span><br><span class="line">The tank is stopping...</span><br></pre></td></tr></table></figure>
+
+<p>To introduce the interface <code>Behavior</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Behavior</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Then update the classes to <code>implement</code> the interface:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> <span class="keyword">implements</span> <span class="title">Behavior</span> </span>&#123; <span class="comment">//implemets interface</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">"The car is driving..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"The car is stopping..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tank</span> <span class="keyword">implements</span> <span class="title">Behavior</span> </span>&#123; <span class="comment">//implemets interface</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">"The tank is driving..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"The tank is stopping..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Test Case then can be re-written as follows:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">interfacetesting</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Behavior[] behaviors = &#123;<span class="keyword">new</span> Car(), <span class="keyword">new</span> Tank()&#125;; <span class="comment">//interface variables can refer to any classes implementing this interface</span></span><br><span class="line">    <span class="keyword">for</span>(Behavior each:behaviors)&#123;</span><br><span class="line">        each.drive();</span><br><span class="line">        each.stop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The output will be the same. Now I can iterate different classes in the same for-loop.</p>
+<h2 id="Note6-inheritance"><a href="#Note6-inheritance" class="headerlink" title="Note6-inheritance"></a>Note6-inheritance</h2><p>The inheritance seems to be not so recommend, it can be used to avoid duplicated codes as interface but with (maybe) less flexibility.<br>To start with, write a class to inherite:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drive</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"The vehicle is driving..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"The vehicle is stopping..."</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>To inherite it, use <code>extends</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NewCar</span> <span class="keyword">extends</span> <span class="title">Vehicle</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NewTank</span> <span class="keyword">extends</span> <span class="title">Vehicle</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Test Case:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inheritancetesting</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Vehicle[] vechiles = &#123;<span class="keyword">new</span> NewCar(),<span class="keyword">new</span> NewTank()&#125;;</span><br><span class="line">    <span class="keyword">for</span>(Vehicle each:vechiles)&#123;</span><br><span class="line">        each.drive();</span><br><span class="line">        each.stop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Output in console:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The vehicle is driving...</span><br><span class="line">The vehicle is stopping...</span><br><span class="line">The vehicle is driving...</span><br><span class="line">The vehicle is stopping...</span><br></pre></td></tr></table></figure>
+
+<p>I think I can use interface and inheritance interchangeably, but maybe not.</p>
+<h2 id="Note7-clone-method-and-more"><a href="#Note7-clone-method-and-more" class="headerlink" title="Note7-clone method and more"></a>Note7-clone method and more</h2><p>Actually there were three ways of copying (i.e. the ‘more’), see if I can repeat them all.</p>
+<ol>
+<li><p><code>clone</code> method in <code>Object</code> class</p>
+<p>a. Good practice:</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">goodclone</span><span class="params">()</span></span>&#123;</span><br><span class="line">	String[] strs1=&#123;<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>&#125;;</span><br><span class="line">	String[] strs2=strs1.clone();</span><br><span class="line">	System.out.print(<span class="string">"strs1:"</span>);</span><br><span class="line">	<span class="keyword">for</span> (String strs:strs1) &#123;</span><br><span class="line">		System.out.print(strs);</span><br><span class="line">		System.out.print(<span class="string">";"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">""</span>);</span><br><span class="line">	System.out.print(<span class="string">"strs2:"</span>);</span><br><span class="line">	<span class="keyword">for</span> (String strs:strs2) &#123;</span><br><span class="line"></span><br><span class="line">		System.out.print(strs);</span><br><span class="line">		System.out.print(<span class="string">";"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">""</span>);</span><br><span class="line">	<span class="keyword">if</span>(strs1==strs2)&#123;</span><br><span class="line">		System.out.println(<span class="string">"strs1 and strs2 are the same!"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"strs1 and strs2 are NOT the same!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> Output in console:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">strs1:a;b;c;</span><br><span class="line">strs2:a;b;c;</span><br><span class="line">strs1 and strs2 are NOT the same!</span><br></pre></td></tr></table></figure>
+
+<p> Why it is good? Because the contains are strings - immutable objects.</p>
+<p> b. Not so good but ok practice:<br> Create a class and override the <code>clone</code> method:</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> <span class="keyword">implements</span> <span class="title">Cloneable</span> </span>&#123; <span class="comment">//need to implement Cloneable interface</span></span><br><span class="line">   <span class="keyword">public</span> Owner owner; <span class="comment">//change it to a object type of Owner and to public so I can test it</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Car</span> <span class="params">(String owner)</span></span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.owner=owner;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">whos</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">return</span>(<span class="string">"The owner is "</span> +owner);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="meta">@Override</span> <span class="comment">//to override clone method from object class</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Car <span class="title">clone</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="keyword">return</span> (Car) <span class="keyword">super</span>.clone(); <span class="comment">//make return type as Car instead of object</span></span><br><span class="line">       &#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> Test Case:</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">okclonetesting</span><span class="params">()</span></span>&#123;</span><br><span class="line">       Car car1=<span class="keyword">new</span> Car(<span class="string">"damao1"</span>);</span><br><span class="line">       Car car2=car1.clone();</span><br><span class="line">       assertNotSame(car1,car2); <span class="comment">//to show that two cars are not the same object</span></span><br><span class="line">       assertEquals(car1.whos(),car2.whos()); <span class="comment">//to show that car2 is a copy of car1</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p> So car1 and car2 are not the same object but the owner is the same. Which shows that car2 is a copy of car1.<br> But why not so good? Because of the codes I have to wirte to override <code>clone</code> method. Why still ok? Because the contains are still strings, and this is a shallow copy - if the contains are objects they are not copied.</p>
+<p> c. Bad practice:<br> If the contains are objects and I create a shallow copy of it:<br> Class:</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Owner</span> <span class="keyword">implements</span> <span class="title">Cloneable</span></span>&#123; <span class="comment">//always remember to implement Cloneable interface!</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Owner</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name=name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">ownersname</span><span class="params">()</span></span>&#123;</span><br><span class="line">		 <span class="keyword">return</span> (name);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeowner</span><span class="params">(String newname)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.name=newname;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> and also change it in Car class</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">private</span> Owner owner; <span class="comment">//change it to a object</span></span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">whos</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">return</span>(<span class="string">"The owner is "</span> +owner.ownersname()); <span class="comment">//to retrive the name value</span></span><br><span class="line">   &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Test Case:</span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">badclonetesting</span><span class="params">()</span></span>&#123;</span><br><span class="line">       Owner owner1=<span class="keyword">new</span> Owner(<span class="string">"damao1"</span>);</span><br><span class="line">       Car car1=<span class="keyword">new</span> Car(owner1);</span><br><span class="line">       Car car2=car1.clone();</span><br><span class="line">       assertNotSame(car1,car2); <span class="comment">//to show that two cars are not the same object</span></span><br><span class="line">       assertSame(car1.owner,car2.owner); <span class="comment">//to show that two owners actually refer the same object</span></span><br><span class="line">       car2.owner.changeowner(<span class="string">"damao2"</span>); <span class="comment">//to change owner2's name and see owner1's name also changes</span></span><br><span class="line">       System.out.println(<span class="string">"car1: "</span>+ car1.whos());</span><br><span class="line">       System.out.println(<span class="string">"car2: "</span>+ car2.whos());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p> Output in console:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">car1: The owner is damao1</span><br><span class="line">car2: The owner is damao1</span><br></pre></td></tr></table></figure>
+
+<p> Which shows that the owner is not copied.<br> So to copy the owner, first to override <code>clone</code> method in Owner class:</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span> <span class="comment">//to override clone method from object class</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Owner <span class="title">clone</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="keyword">return</span> (Owner) <span class="keyword">super</span>.clone();</span><br><span class="line">       &#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p> then to rewrite <code>clone</code> method in Car class:</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span> <span class="comment">//to override clone method from object class</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Car <span class="title">clone</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           Car car =(Car) <span class="keyword">super</span>.clone();</span><br><span class="line">           car.owner=owner.clone();</span><br><span class="line">           <span class="keyword">return</span> car;</span><br><span class="line">       &#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p> Test Case:</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">badclonetesting</span><span class="params">()</span></span>&#123;</span><br><span class="line">       Owner owner1=<span class="keyword">new</span> Owner(<span class="string">"damao1"</span>);</span><br><span class="line">       Car car1=<span class="keyword">new</span> Car(owner1);</span><br><span class="line">       Car car2=car1.clone();</span><br><span class="line">       assertNotSame(car1,car2); <span class="comment">//to show that two cars are not the same object</span></span><br><span class="line">       assertNotSame(car1.owner,car2.owner); <span class="comment">//to show that two owners are not the same object</span></span><br><span class="line">       car2.owner.changeowner(<span class="string">"damao2"</span>); <span class="comment">//to change owner2's name and see owner1's name does not change now</span></span><br><span class="line">       System.out.println(<span class="string">"car1: "</span>+ car1.whos());</span><br><span class="line">       System.out.println(<span class="string">"car2: "</span>+ car2.whos());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p> Output in console:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">car1: The owner is damao1</span><br><span class="line">car2: The owner is damao2</span><br></pre></td></tr></table></figure>
+
+<p> It works now, but indeed it is too complicated. It is a good way of practicing though.</p>
+</li>
+<li><p>constructor<br> To make a copy of itself, create a constructor with itself as the parameter.</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Owner</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name=name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Owner</span><span class="params">(Owner owner)</span></span>&#123; <span class="comment">//makecopy</span></span><br><span class="line">       <span class="keyword">this</span>.name = name;</span><br><span class="line">   &#125;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="keyword">public</span> Owner owner;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Car</span> <span class="params">(Owner owner)</span></span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.owner=owner;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">(Car car)</span></span>&#123; <span class="comment">//makecopy</span></span><br><span class="line">       <span class="keyword">this</span>.owner=<span class="keyword">new</span> Owner(car.owner);</span><br><span class="line">   &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p> Test Case:</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">constructortesting</span><span class="params">()</span></span>&#123;</span><br><span class="line">       Owner owner1 = <span class="keyword">new</span> Owner(<span class="string">"damao1"</span>);</span><br><span class="line">       Car car1 = <span class="keyword">new</span> Car(owner1);</span><br><span class="line">       Car car2 = <span class="keyword">new</span> Car(car1);</span><br><span class="line">       assertNotSame(car1,car2);</span><br><span class="line">       assertNotSame(owner1,car2.owner);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p> But constructors don’t have meaningful names so can be confusing.</p>
+</li>
+<li><p>static factory method</p>
+<blockquote>
+<p>Consider static factory methods instead of constructors. – Joshua Bloch</p>
+</blockquote>
+<p> Static factory method has a distinct method name but the logic and the structer looks the same - create a method with itself as the parameter, and return a new object of its type.</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Car <span class="title">newInstance</span><span class="params">(Car car)</span></span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> Car(Owner.newInstance(car.owner));</span><br><span class="line">   &#125;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Owner <span class="title">newInstance</span><span class="params">(Owner owner)</span></span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> Owner(owner.name);</span><br><span class="line">   &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p> Test Case:</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">constructortesting</span><span class="params">()</span></span>&#123;</span><br><span class="line">       Owner owner1 = <span class="keyword">new</span> Owner(<span class="string">"damao1"</span>);</span><br><span class="line">       Car car1 = <span class="keyword">new</span> Car(owner1);</span><br><span class="line">       Car car2 = Car.newInstance(car1);</span><br><span class="line">       assertNotSame(car1,car2);</span><br><span class="line">       assertNotSame(owner1,car2.owner);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>That’s the end of the first learning notes. I will continute with specific topics then.</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Jun Hu
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://maologue.com/java-learning-notes/" title="Java Learning Notes">https://maologue.com/java-learning-notes/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># Java</a>
+          </div>
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-6975888457795719" data-ad-slot="8820815376"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/how-to-calculate-aqi/" rel="prev" title="How to Calculate AQI">
+      <i class="fa fa-chevron-left"></i> How to Calculate AQI
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/time-dilation/" rel="next" title="Time Dilation Explained With a " light clock"">
+      Time Dilation Explained With a "Light Clock" <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note1-enum"><span class="nav-number">1.</span> <span class="nav-text">Note1-enum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note1-enum-1"><span class="nav-number">2.</span> <span class="nav-text">Note1-enum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note2-logging"><span class="nav-number">3.</span> <span class="nav-text">Note2-logging</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note3-main-method"><span class="nav-number">4.</span> <span class="nav-text">Note3-main method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note4-exception-handling"><span class="nav-number">5.</span> <span class="nav-text">Note4-exception handling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note5-interface"><span class="nav-number">6.</span> <span class="nav-text">Note5-interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note6-inheritance"><span class="nav-number">7.</span> <span class="nav-text">Note6-inheritance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note7-clone-method-and-more"><span class="nav-number">8.</span> <span class="nav-text">Note7-clone method and more</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jun Hu" src="/site/avatar.png">
+  <p class="site-author-name" itemprop="name">Jun Hu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:da0mao@hotmail.com" title="E-Mail → mailto:da0mao@hotmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/da0mao/" title="Instagram → https://www.instagram.com/da0mao/" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jun Hu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Mist</a>
+    <a href="https://github.com/da0mao/da0mao.github.io/actions" title="GitHub Actions" rel="external nofollow noopener noreferrer" target="_blank"> <img src="https://github.com/da0mao/da0mao.github.io/workflows/GitHub%20Actions/badge.svg?branch=blog-source" alt="GitHub Actions">
+	</a>
+	</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>maologue</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://maologue.com/"/>
+  <updated>2020-06-14T08:52:11.638Z</updated>
+  <id>https://maologue.com/</id>
+  
+  <author>
+    <name>Jun Hu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Harmonic Series and Alternating Harmonic Series</title>
+    <link href="https://maologue.com/Harmonic-Series-and-Alternating-Harmonic-Series/"/>
+    <id>https://maologue.com/Harmonic-Series-and-Alternating-Harmonic-Series/</id>
+    <published>2020-06-14T02:18:00.000Z</published>
+    <updated>2020-06-14T08:52:11.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The harmonic series,&lt;br&gt;$$&lt;br&gt;1+\frac1{2}+\frac1{3}+\frac1{4}+\frac1{5}+\dots =\sum_{n=1}^\infty\frac1{n}=?&lt;br&gt;$$&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Nature Logarithm" scheme="https://maologue.com/tags/nature-logarithm/"/>
+    
+      <category term="Infinite Series" scheme="https://maologue.com/tags/infinite-series/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>One Solution to Git Push Timeout Error - Failed to Connect to 443 Port</title>
+    <link href="https://maologue.com/one-solution-to-git-push-timeout-error-failed-to-connect-to-443-port/"/>
+    <id>https://maologue.com/one-solution-to-git-push-timeout-error-failed-to-connect-to-443-port/</id>
+    <published>2020-06-13T10:11:48.000Z</published>
+    <updated>2020-06-14T08:52:11.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;When I tried to push a new post to the Github, I received below error message.&lt;br&gt;&lt;code&gt;Failed to connect to github.com port 443: Timed out&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="https://maologue.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Euler&#39;s Formula Quiz</title>
+    <link href="https://maologue.com/euler-s-formula-quiz/"/>
+    <id>https://maologue.com/euler-s-formula-quiz/</id>
+    <published>2020-05-16T12:36:12.000Z</published>
+    <updated>2020-06-14T08:52:11.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The goal is to prove that&lt;/p&gt;
+&lt;p&gt;$\exp(x+y)\exp(x)\exp(y)$,&lt;/p&gt;
+&lt;p&gt;or in another form&lt;/p&gt;
+&lt;p&gt;$e^{(x+y)}=e^x+e^y$.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Euler" scheme="https://maologue.com/tags/euler/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Geometry Complex Numbers and Trigonometry</title>
+    <link href="https://maologue.com/geometry-complex-numbers-and-trigonomery/"/>
+    <id>https://maologue.com/geometry-complex-numbers-and-trigonomery/</id>
+    <published>2020-05-13T14:21:30.000Z</published>
+    <updated>2020-06-14T08:52:11.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Being tired of memorizing these formulas? See how a unit circle and the complex numbers can help.&lt;br&gt;$\begin{array}{1}\sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta\\cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta\end{array}$&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="trigonometry" scheme="https://maologue.com/tags/trigonometry/"/>
+    
+      <category term="complex number" scheme="https://maologue.com/tags/complex-number/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Another View on the Quadratic Formula</title>
+    <link href="https://maologue.com/another-view-on-the-quadratic-formula/"/>
+    <id>https://maologue.com/another-view-on-the-quadratic-formula/</id>
+    <published>2020-05-12T12:32:42.000Z</published>
+    <updated>2020-06-14T08:52:11.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Being tired of memorizing this fomula? Let’s take a look at it from a different perspective.&lt;br&gt;${\displaystyle x={\frac {-b\pm {\sqrt {b^{2}-4ac}}}{2a}}\ \ }$?&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Quadratic Formula" scheme="https://maologue.com/tags/quadratic-formula/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NPM, Node.js and JavaScript</title>
+    <link href="https://maologue.com/npm-node-js-and-javascript/"/>
+    <id>https://maologue.com/npm-node-js-and-javascript/</id>
+    <published>2020-05-11T14:54:12.000Z</published>
+    <updated>2020-06-14T08:52:11.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. Alongside HTML and CSS, JavaScript is one of the core technologies of the World Wide Web. HTML is responsible for the structures, CSS is responsible for the decorations, and JavaScript is responsible for the interactions.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://maologue.com/tags/javascript/"/>
+    
+      <category term="NPM" scheme="https://maologue.com/tags/npm/"/>
+    
+      <category term="Node.js" scheme="https://maologue.com/tags/node-js/"/>
+    
+      <category term="backend" scheme="https://maologue.com/tags/backend/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>What&#39;s the Commonality Between Java and Javascript?</title>
+    <link href="https://maologue.com/what-s-the-commonality-between-java-and-javascript/"/>
+    <id>https://maologue.com/what-s-the-commonality-between-java-and-javascript/</id>
+    <published>2020-05-10T14:39:01.000Z</published>
+    <updated>2020-06-14T08:52:11.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lots of new programmers and non-tech people have long confused Java and JavaScript, so what’s the commonality? &lt;span class=&quot;github-emoji&quot; alias=&quot;smirk&quot; style fallback-src=&quot;https://github.githubassets.com/images/icons/emoji/unicode/1f60f.png?v8&quot;&gt;&amp;#x1f60f;&lt;/span&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://maologue.com/tags/java/"/>
+    
+      <category term="JavaScript" scheme="https://maologue.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java Comparable Interface</title>
+    <link href="https://maologue.com/java-comparable-interface/"/>
+    <id>https://maologue.com/java-comparable-interface/</id>
+    <published>2020-05-09T11:02:22.000Z</published>
+    <updated>2020-06-14T08:52:11.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Java Comparable interface is used to order the objects of the user-defined class. This interface is found in java. lang package and contains only one method named compareTo(Object). It provides a single sorting sequence only, i.e., you can sort the elements on the basis of single data member only. This post show an example of sorting apples by their types (string), colors (enum) and weights (int).&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://maologue.com/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Time Dilation Explained With a &quot;Light Clock&quot;</title>
+    <link href="https://maologue.com/time-dilation/"/>
+    <id>https://maologue.com/time-dilation/</id>
+    <published>2020-05-04T13:16:11.000Z</published>
+    <updated>2020-06-14T08:52:11.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Time dilation was predicted by several authors at the turn of the 20th century. In June 1905, Einstein pointed that this effect concerns the nature of time itself.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="special relativity" scheme="https://maologue.com/tags/special-relativity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java Learning Notes</title>
+    <link href="https://maologue.com/java-learning-notes/"/>
+    <id>https://maologue.com/java-learning-notes/</id>
+    <published>2020-05-02T09:57:47.000Z</published>
+    <updated>2020-06-14T08:52:11.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Notes while learning Java from Marcus Biel’s &lt;a href=&quot;https://www.youtube.com/playlist?list=PLFmkgh1ckFjH1LaQvs_5pAuaZVVZ_3qcM&quot; rel=&quot;external nofollow noopener noreferrer&quot; target=&quot;_blank&quot;&gt;tutorials&lt;/a&gt; .&lt;/p&gt;
+&lt;h2 id=&quot;Note1-enum&quot;&gt;&lt;a href=&quot;#Note1-enum&quot; class=&quot;headerlink&quot; title=&quot;Note1-enum&quot;&gt;&lt;/a&gt;Note1-enum&lt;/h2&gt;&lt;p&gt;enum:&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; States &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    processing,processed,pending;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isprocessing&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt; == processing;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Test Case:&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="https://maologue.com/tags/java/"/>
+    
+  </entry>
+  
+</feed>
