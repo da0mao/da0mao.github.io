@@ -55,21 +55,23 @@ $$
 And then take the derivates of it,
 
 $$
-\hookrightarrow \frac{d}{dx}(x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\frac{x^5}{5}-\dots)\\\\
-=1-x+x^2-x^3+x^4-\dots\\\\
-=\frac1{1+x}
+\begin{align}
+\hookrightarrow &\frac{d}{dx}(x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\frac{x^5}{5}-\dots)\nonumber\\\\
+&=1-x+x^2-x^3+x^4-\dots\nonumber\\\\
+&=\frac1{1+x}\nonumber
+\end{align}
 $$
 
 And then, to integrate it back, and to specialize it to the series we are interested in,
 
 $$
-\begin{array}
-1-\frac1{2}+\frac1{3}-\frac1{4}+\frac1{5}-\dots\\
-=[x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\frac{x^5}{5}-\dots]_0^1\\
-=\int_0^1\frac1{1+x}dx\\
-=ln(1+x)|_0^1\nonumber\\
-=ln(2)
-\end{array}
+\begin{align}
+&1-\frac1{2}+\frac1{3}-\frac1{4}+\frac1{5}-\dots\nonumber\\\\
+&=[x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\frac{x^5}{5}-\dots]_0^1\nonumber\\\\
+&=\int_0^1\frac1{1+x}dx\nonumber\\\\
+&=ln(1+x)|_0^1\nonumber\nonumber\\\\
+&=ln(2)\nonumber
+\end{align}
 $$
 
 ---
