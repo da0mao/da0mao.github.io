@@ -1,5 +1,5 @@
 ---
-title: ‘One Solution to Git Push Timeout Error - Failed to connect to 443 port’
+title: One Solution to Git Push Timeout Error - Failed to connect to 443 port
 author: Jun Hu
 tags:
   - Git
